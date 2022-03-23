@@ -1,0 +1,57 @@
+.card {
+  display: flex;
+  align-items: center;
+
+  padding: 10px 10px;
+  width: 60vw;
+  /* height: 80px; */
+  background-color: rgba(231, 242, 242, 0.852);
+}
+
+.card-description {
+  display: flex;
+  flex-direction: column;
+
+  height: inherit;
+
+  justify-content: space-around;
+
+  margin-left: 10px;
+  /* align-items: center; */
+}
+
+.card-name {
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card-effect {
+  font-weight: 100;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.card-ingredients-wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.card-ingredient {
+  font-weight: 100;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.card-spread {
+  font-weight: 400;
+  margin-left: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.card-buttons {
+  position: relative;
+  left: 30%;
+}

@@ -1,24 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import './App.css';
 
-function App() {
+import { getCards } from 'src/store/cards/action'
+import { Card } from 'src/card/Card'
+import { State, Elixir } from 'src/store/types'
+
+export const App: React.FC = () => {
+  const dispatch = useDispatch()
+  const elixirs = useSelector<State, Elixir[]>(state => state.cards.cards)
+
+  useEffect(() => {
+    dispatch(getCards())
+  }, [])
+  // const clickHandler = () => {
+  //   console.log('Click')
+  //   dispatch(getCards())
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Elixirs</h1>
+      {/* <button
+        onClick={clickHandler}
+      > 
+        get data
+      </button> */}
+      {elixirs.map(
+        elixir => <div className='card-wrapper'>
+          <Card 
+            id={elixir.id}
+            name={elixir.name} 
+            effect={elixir.effect}
+            ingredients={elixir.ingredients}
+          />
+          </div>
+      )}
     </div>
   );
 }
