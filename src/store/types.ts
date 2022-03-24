@@ -12,8 +12,6 @@ export interface Action<T> {
   payload?: T,
 }
 
-export interface ResponseCardList extends Response {}
-
 export type Elixir = {
   id: string,
   name: string,
