@@ -1,24 +1,30 @@
 export interface State {
-  cards: {
-    cards: Elixir[]
-  }
+  cards: Cards,
 }
 
-export interface Action {
+export type Cards = {
+  cards: Elixir[],
+  loader: boolean,
+}
+
+export interface Action<T> {
   type: string,
-  payload?: any,
+  payload?: T,
 }
 
 export interface ResponseCardList extends Response {}
 
-export interface Elixir {
+export type Elixir = {
   id: string,
   name: string,
   effect: string,
   ingredients: Ingredient[],
+  removed: boolean,
+  like: boolean,
+  color?: string,
 }
 
-export interface Ingredient {
+export type Ingredient = {
   id: string,
   name: string,
 }
